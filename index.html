@@ -648,9 +648,32 @@
     </div>
   </section>
 
-  <footer>
-    © 2026 wdonkisot prod. — Official Artist Page
+  <footer id="secretAdminTrigger">
+  © 2026 wdonkisot prod. — Official Artist Page
   </footer>
+  <div id="adminModal" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,0.72); z-index:9999; align-items:center; justify-content:center; padding:20px;">
+  <div style="width:100%; max-width:700px; background:#0b1120; border-radius:20px; padding:20px;">
+
+    <h2>Admin Panel</h2>
+
+    <div id="loginBox">
+      <input id="adminUser" placeholder="Kullanıcı adı" style="width:100%; margin:10px 0; padding:12px;">
+      <input id="adminPass" type="password" placeholder="Şifre" style="width:100%; margin:10px 0; padding:12px;">
+      <button onclick="adminLogin()" style="width:100%; padding:12px;">Giriş Yap</button>
+    </div>
+
+    <div id="adminContent" style="display:none;">
+      <h3>NEWS JSON</h3>
+      <textarea id="newsInput" style="width:100%; height:140px;"></textarea>
+      <button onclick="copyJSON('newsInput')">Kopyala</button>
+
+      <h3>RELEASES JSON</h3>
+      <textarea id="releasesInput" style="width:100%; height:140px;"></textarea>
+      <button onclick="copyJSON('releasesInput')">Kopyala</button>
+    </div>
+
+  </div>
+  </div>
 
   <script>
     // particles
@@ -678,7 +701,59 @@
     }, { threshold: 0.12 });
 
     document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-  </script>
+    
+// ADMIN PANEL
+let tapCount = 0;
+
+document.getElementById("secretAdminTrigger").addEventListener("click", () => {
+  tapCount++;
+  if (tapCount >= 5) {
+    document.getElementById("adminModal").style.display = "flex";
+    tapCount = 0;
+  }
+});
+
+function adminLogin() {
+  const user = document.getElementById("adminUser").value;
+  const pass = document.getElementById("adminPass").value;
+
+  if (user === "wdonkisotprd" && pass === "!!32!oWdK890") {
+    document.getElementById("loginBox").style.display = "none";
+    document.getElementById("adminContent").style.display = "block";
+
+    document.getElementById("newsInput").value = `[
+  {
+    "date": "24 April 2026",
+    "title": "Yeni Playlist",
+    "text": "Yeni playlist çok yakında yayında."
+  }
+]`;
+
+    document.getElementById("releasesInput").value = `[
+  {
+    "title": "Mutsuz Son",
+    "image": "mutsuzson.jpg",
+    "link": "https://youtu.be/..."
+  }
+]`;
+
+  } else {
+    alert("Hatalı giriş");
+  }
+}
+
+function copyJSON(id) {
+  const text = document.getElementById(id).value;
+  navigator.clipboard.writeText(text);
+  alert("Kopyalandı");
+}
+
+document.getElementById("adminModal").addEventListener("click", (e) => {
+  if (e.target.id === "adminModal") {
+    document.getElementById("adminModal").style.display = "none";
+  }
+});
+</script>
 
 </body>
 </html>
