@@ -66,3 +66,51 @@ fetch('releases.json')
     });
   })
   .catch(err => console.error('Releases yüklenemedi:', err));
+// GIZLI ADMIN PANEL
+let adminTapCount = 0;
+const adminTrigger = document.getElementById('secretAdminTrigger');
+const adminModal = document.getElementById('adminModal');
+
+if (adminTrigger) {
+  adminTrigger.addEventListener('click', () => {
+    adminTapCount++;
+
+    if (adminTapCount >= 5) {
+      adminModal.style.display = 'flex';
+      adminTapCount = 0;
+    }
+
+    setTimeout(() => {
+      adminTapCount = 0;
+    }, 2500);
+  });
+}
+
+function closeAdmin() {
+  adminModal.style.display = 'none';
+}
+
+function adminLogin() {
+  const user = document.getElementById('adminUser').value.trim();
+  const pass = document.getElementById('adminPass').value.trim();
+
+  // BURAYI KENDINE GORE DEGISTIR
+  const correctUser = "wdkadmin";
+  const correctPass = "1907wdk";
+
+  if (user === correctUser && pass === correctPass) {
+    document.getElementById('loginBox').style.display = 'none';
+    document.getElementById('adminContent').style.display = 'block';
+  } else {
+    alert("Kullanıcı adı veya şifre yanlış.");
+  }
+}
+
+function copyJSON(id) {
+  const textarea = document.getElementById(id);
+  textarea.select();
+  textarea.setSelectionRange(0, 99999);
+  navigator.clipboard.writeText(textarea.value)
+    .then(() => alert("JSON kopyalandı. GitHub dosyasına yapıştırabilirsin."))
+    .catch(() => alert("Kopyalama başarısız oldu."));
+}
