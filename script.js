@@ -1,6 +1,6 @@
-// particles
+// PARTICLES
 const particlesContainer = document.querySelector('.particles');
-const particleCount = 24;
+const particleCount = 60;
 
 for (let i = 0; i < particleCount; i++) {
   const p = document.createElement('span');
@@ -14,7 +14,7 @@ for (let i = 0; i < particleCount; i++) {
   particlesContainer.appendChild(p);
 }
 
-// reveal on scroll
+// SCROLL REVEAL
 const observer = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
@@ -25,7 +25,7 @@ const observer = new IntersectionObserver((entries) => {
 
 document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
-// NEWS JSON çek
+// NEWS JSON
 fetch('news.json')
   .then(res => res.json())
   .then(news => {
@@ -34,18 +34,20 @@ fetch('news.json')
     news.forEach(item => {
       const card = document.createElement('div');
       card.className = 'news-card reveal';
+
       card.innerHTML = `
         <div class="news-date">${item.date}</div>
         <h3>${item.title}</h3>
         <p>${item.text}</p>
       `;
+
       newsContainer.appendChild(card);
       observer.observe(card);
     });
   })
   .catch(err => console.error('News yüklenemedi:', err));
 
-// RELEASES JSON çek
+// RELEASES JSON
 fetch('releases.json')
   .then(res => res.json())
   .then(releases => {
@@ -54,6 +56,7 @@ fetch('releases.json')
     releases.forEach(item => {
       const card = document.createElement('div');
       card.className = 'release-card reveal';
+
       card.innerHTML = `
         <img src="${item.image}" alt="${item.title} cover" />
         <div class="release-info">
@@ -61,56 +64,47 @@ fetch('releases.json')
           <a href="${item.link}" target="_blank">Dinle</a>
         </div>
       `;
+
       releasesContainer.appendChild(card);
       observer.observe(card);
     });
   })
   .catch(err => console.error('Releases yüklenemedi:', err));
-// GIZLI ADMIN PANEL
-let adminTapCount = 0;
-const adminTrigger = document.getElementById('secretAdminTrigger');
-const adminModal = document.getElementById('adminModal');
 
-if (adminTrigger) {
-  adminTrigger.addEventListener('click', () => {
-    adminTapCount++;
+// 🔥 ADMIN PANEL
 
-    if (adminTapCount >= 5) {
-      adminModal.style.display = 'flex';
-      adminTapCount = 0;
-    }
+let clickCount = 0;
+document.getElementById("secretAdminTrigger").addEventListener("click", () => {
+  clickCount++;
+  if (clickCount >= 5) {
+    document.getElementById("adminModal").style.display = "flex";
+    clickCount = 0;
+  }
+});
 
-    setTimeout(() => {
-      adminTapCount = 0;
-    }, 2500);
-  });
-}
-
-function closeAdmin() {
-  adminModal.style.display = 'none';
-}
-
+// LOGIN
 function adminLogin() {
-  const user = document.getElementById('adminUser').value.trim();
-  const pass = document.getElementById('adminPass').value.trim();
+  const user = document.getElementById("adminUser").value;
+  const pass = document.getElementById("adminPass").value;
 
-  // BURAYI KENDINE GORE DEGISTIR
-  const correctUser = "wdkadmin";
-  const correctPass = "1907wdk";
-
-  if (user === correctUser && pass === correctPass) {
-    document.getElementById('loginBox').style.display = 'none';
-    document.getElementById('adminContent').style.display = 'block';
+  if (user === "wdonkisotprd" && pass === "!!32!oWdK890") {
+    document.getElementById("loginBox").style.display = "none";
+    document.getElementById("adminContent").style.display = "block";
   } else {
-    alert("Kullanıcı adı veya şifre yanlış.");
+    alert("Hatalı giriş");
   }
 }
 
+// COPY JSON
 function copyJSON(id) {
-  const textarea = document.getElementById(id);
-  textarea.select();
-  textarea.setSelectionRange(0, 99999);
-  navigator.clipboard.writeText(textarea.value)
-    .then(() => alert("JSON kopyalandı. GitHub dosyasına yapıştırabilirsin."))
-    .catch(() => alert("Kopyalama başarısız oldu."));
+  const text = document.getElementById(id).value;
+  navigator.clipboard.writeText(text);
+  alert("Kopyalandı!");
 }
+
+// CLOSE PANEL (arka plana tıklayınca kapansın)
+document.getElementById("adminModal").addEventListener("click", (e) => {
+  if (e.target.id === "adminModal") {
+    document.getElementById("adminModal").style.display = "none";
+  }
+});
