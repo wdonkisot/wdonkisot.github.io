@@ -1,197 +1,480 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>wdonkisot prod.</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>wdonkisot prod. | Official Artist Page</title>
+  <meta name="description" content="wdonkisot prod. resmi sanatçı sayfası. AI-Assisted Producer, Artist & Songwriter." />
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
 
-<style>
-body {
-  margin:0;
-  font-family: Arial;
-  background:#0b0f14;
-  color:white;
-}
+    body {
+      font-family: Arial, sans-serif;
+      background: linear-gradient(180deg, #05070d 0%, #07101b 100%);
+      color: white;
+      line-height: 1.6;
+    }
 
-.banner {
-  width:100%;
-  height:260px;
-  background:url('banner.jpg') center/cover no-repeat;
-}
+    a {
+      text-decoration: none;
+      color: white;
+    }
 
-.profile {
-  display:flex;
-  justify-content:center;
-  margin-top:-70px;
-}
+    .container {
+      width: 90%;
+      max-width: 1100px;
+      margin: auto;
+    }
 
-.profile img {
-  width:140px;
-  height:140px;
-  border-radius:50%;
-  border:4px solid #0b0f14;
-}
+    /* HERO */
+    .hero {
+      position: relative;
+      min-height: 72vh;
+      background:
+        linear-gradient(to bottom, rgba(0,0,0,0.30), rgba(3,7,15,0.92)),
+        url('banner.png') center/cover no-repeat;
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+      text-align: center;
+      padding-bottom: 36px;
+    }
 
-.center {
-  text-align:center;
-  padding:20px;
-}
+    .hero-inner {
+      width: 100%;
+      max-width: 920px;
+      padding: 0 20px;
+      position: relative;
+      transform: translateY(88px);
+    }
 
-h1 {
-  margin-top:10px;
-  font-size:28px;
-}
+    .profile-pic {
+      width: 170px;
+      height: 170px;
+      border-radius: 50%;
+      overflow: hidden;
+      border: 4px solid rgba(255,255,255,0.14);
+      margin: 0 auto 24px;
+      position: relative;
+      z-index: 5;
+      background: #0a0f1a;
+      box-shadow: 0 12px 35px rgba(0,0,0,0.45);
+    }
 
-.subtitle {
-  color:#aaa;
-  margin-bottom:15px;
-}
+    .profile-pic img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
 
-.buttons {
-  display:flex;
-  gap:10px;
-  justify-content:center;
-  flex-wrap:wrap;
-  margin-top:20px;
-}
+    .hero-card {
+      background: rgba(7, 13, 23, 0.88);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 28px;
+      padding: 32px 26px 34px;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 10px 35px rgba(0,0,0,0.22);
+    }
 
-.btn {
-  padding:12px 20px;
-  border-radius:12px;
-  background:#1a1f2b;
-  border:1px solid #333;
-}
+    .hero h1 {
+      font-size: 3rem;
+      margin-bottom: 12px;
+      font-weight: 800;
+    }
 
-.section {
-  padding:40px 20px;
-}
+    .hero h2 {
+      font-size: 1.25rem;
+      font-weight: 400;
+      color: #cfd6e6;
+      margin-bottom: 18px;
+    }
 
-.title {
-  text-align:center;
-  margin-bottom:20px;
-}
+    .hero p {
+      max-width: 760px;
+      margin: 0 auto 16px;
+      font-size: 1.06rem;
+      color: #e3e7ef;
+    }
 
-.grid {
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(140px,1fr));
-  gap:12px;
-}
+    .hero-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 14px;
+      flex-wrap: wrap;
+      margin-top: 26px;
+    }
 
-.card {
-  background:#151a23;
-  padding:15px;
-  border-radius:12px;
-  text-align:center;
-}
+    .btn {
+      padding: 14px 28px;
+      border-radius: 16px;
+      background: rgba(255,255,255,0.07);
+      border: 1px solid rgba(255,255,255,0.10);
+      transition: 0.3s ease;
+      font-weight: bold;
+      min-width: 170px;
+      display: inline-block;
+    }
 
-.release img {
-  width:100%;
-  border-radius:10px;
-}
+    .btn:hover {
+      transform: translateY(-3px);
+      background: rgba(255,255,255,0.13);
+    }
 
-.release a {
-  display:block;
-  margin-top:8px;
-  font-size:13px;
-  color:#8ab4ff;
-}
+    section {
+      padding: 110px 0 80px;
+    }
 
-.text {
-  background:#151a23;
-  padding:20px;
-  border-radius:14px;
-}
-</style>
+    .section-title {
+      text-align: center;
+      font-size: 2.2rem;
+      margin-bottom: 40px;
+      font-weight: 800;
+    }
+
+    /* LINKS */
+    .links-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 18px;
+    }
+
+    .link-card {
+      background: rgba(255,255,255,0.05);
+      padding: 18px;
+      text-align: center;
+      border-radius: 18px;
+      border: 1px solid rgba(255,255,255,0.08);
+      transition: 0.3s ease;
+      font-weight: bold;
+    }
+
+    .link-card:hover {
+      transform: translateY(-4px);
+      background: rgba(255,255,255,0.10);
+    }
+
+    /* RELEASES */
+    .release-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+      gap: 24px;
+    }
+
+    .release-card {
+      background: rgba(255,255,255,0.05);
+      border-radius: 22px;
+      padding: 18px;
+      border: 1px solid rgba(255,255,255,0.08);
+      transition: 0.3s ease;
+    }
+
+    .release-card:hover {
+      transform: translateY(-4px);
+      background: rgba(255,255,255,0.08);
+    }
+
+    .release-card img {
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      object-fit: cover;
+      border-radius: 18px;
+      display: block;
+      margin-bottom: 16px;
+      background: #0a0f1a;
+    }
+
+    .release-info h3 {
+      font-size: 1.35rem;
+      margin-bottom: 8px;
+    }
+
+    .release-info a {
+      color: #b7c8ff;
+      font-weight: bold;
+    }
+
+    /* TEXT BLOCKS */
+    .card {
+      background: rgba(255,255,255,0.05);
+      padding: 28px;
+      border-radius: 22px;
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .text-block p {
+      margin-bottom: 18px;
+      color: #dce3ef;
+      font-size: 1.04rem;
+    }
+
+    .contact-list {
+      display: grid;
+      gap: 12px;
+      margin-top: 20px;
+    }
+
+    .contact-item {
+      background: rgba(255,255,255,0.05);
+      padding: 14px 16px;
+      border-radius: 14px;
+      border: 1px solid rgba(255,255,255,0.06);
+      color: #e7ebf4;
+      word-break: break-word;
+    }
+
+    footer {
+      text-align: center;
+      padding: 36px 20px;
+      color: #aeb7c8;
+      font-size: 0.95rem;
+      border-top: 1px solid rgba(255,255,255,0.06);
+      margin-top: 30px;
+    }
+
+    @media (max-width: 768px) {
+      .hero {
+        min-height: 60vh;
+      }
+
+      .hero-inner {
+        transform: translateY(78px);
+      }
+
+      .hero h1 {
+        font-size: 2.2rem;
+      }
+
+      .hero h2 {
+        font-size: 1.05rem;
+      }
+
+      .hero p {
+        font-size: 0.98rem;
+      }
+
+      .profile-pic {
+        width: 140px;
+        height: 140px;
+      }
+
+      .btn {
+        width: 100%;
+        max-width: 320px;
+      }
+
+      .section-title {
+        font-size: 1.9rem;
+      }
+    }
+  </style>
 </head>
-
 <body>
 
-<div class="banner"></div>
+  <!-- HERO -->
+  <header class="hero">
+    <div class="hero-inner">
+      <div class="profile-pic">
+        <img src="profile.png" alt="wdonkisot prod. profile photo" />
+      </div>
 
-<div class="profile">
-<img src="profile.jpg">
-</div>
+      <div class="hero-card">
+        <h1>wdonkisot prod.</h1>
+        <h2>AI-Assisted Producer, Artist & Songwriter</h2>
 
-<div class="center">
-<h1>wdonkisot prod.</h1>
-<div class="subtitle">AI-Assisted Producer / Artist / Songwriter</div>
+        <p>
+          wdonkisot prod. bağımsız bir AI-assisted producer, artist ve songwriter’dır.
+          Duygusal, karanlık ve atmosferik Türkçe rap / trap sound’u üretir.
+        </p>
 
-<p>
-Duygusal, karanlık ve atmosferik Türkçe rap / trap sound üretir.
-</p>
+        <p>
+          Kendi projelerinde konsept, söz yazımı, duygu dünyası ve dijital kimliği kurarken;
+          yapay zekâyı yaratıcı sürecinin bir parçası olarak kullanır.
+        </p>
 
-<div class="buttons">
-<a class="btn" href="https://open.spotify.com/artist/4YSmTSFitam5JCXpjdcjVB?si=3d2qYO6YTJa_OMGryRXkWQ">Spotify</a>
-<a class="btn" href="https://www.youtube.com/@wdonkisotprod">YouTube</a>
-<a class="btn" href="#releases">Releases</a>
-</div>
-</div>
+        <div class="hero-buttons">
+          <a class="btn" href="https://open.spotify.com/artist/4YSmTSFitam5JCXpjdcjVB?si=3d2qYO6YTJa_OMGryRXkWQ" target="_blank">Spotify</a>
+          <a class="btn" href="https://www.youtube.com/@wdonkisotprod" target="_blank">YouTube</a>
+          <a class="btn" href="#latest-releases">Latest Releases</a>
+        </div>
+      </div>
+    </div>
+  </header>
 
-<div class="section">
-<h2 class="title">OFFICIAL LINKS</h2>
-<div class="grid">
-<a class="card" href="#">Spotify</a>
-<a class="card" href="#">YouTube</a>
-<a class="card" href="#">Instagram</a>
-<a class="card" href="#">TikTok</a>
-<a class="card" href="#">SoundCloud</a>
-<a class="card" href="#">Audiomack</a>
-<a class="card" href="#">Genius</a>
-</div>
-</div>
+  <!-- ABOUT -->
+  <section>
+    <div class="container">
+      <h2 class="section-title">ABOUT</h2>
+      <div class="card text-block">
+        <p>
+          wdonkisot prod., duygusal trap, melankolik Türkçe rap ve karanlık atmosferli prodüksiyonlar üreten bağımsız bir producer, artist ve songwriter’dır.
+        </p>
+        <p>
+          Projelerinde içe dönük hikâyeler, duygusal kırılmalar, yalnızlık, özlem ve gece atmosferi öne çıkar.
+          Sound dünyasında modern trap altyapıları, karanlık melodiler, sinematik dokular ve zaman zaman Arapça / ambient sample estetiği dikkat çeker.
+        </p>
+        <p>
+          Sanatçı, müziğini üretirken yapay zekâyı yaratıcı sürecinin bir parçası olarak kullanır.
+          Konsept geliştirme, görsel dünya kurma, yaratıcı yön belirleme ve dijital anlatım tarafında AI-assisted bir üretim yaklaşımı benimser.
+        </p>
+        <p>
+          wdonkisot prod. sadece şarkı yayınlayan biri değil; aynı zamanda beat üreten, kendi dijital artist kimliğini kuran ve bağımsız şekilde proje geliştiren çok yönlü bir müzik üreticisidir.
+        </p>
+      </div>
+    </div>
+  </section>
 
-<div class="section" id="releases">
-<h2 class="title">LATEST RELEASES</h2>
+  <!-- LISTEN ON SPOTIFY -->
+  <section>
+    <div class="container">
+      <h2 class="section-title">LISTEN ON SPOTIFY</h2>
+      <div class="card" style="text-align:center;">
+        <a class="btn" href="https://open.spotify.com/artist/4YSmTSFitam5JCXpjdcjVB?si=3d2qYO6YTJa_OMGryRXkWQ" target="_blank">Open Spotify</a>
+      </div>
+    </div>
+  </section>
 
-<div class="grid">
+  <!-- OFFICIAL LINKS -->
+  <section>
+    <div class="container">
+      <h2 class="section-title">OFFICIAL LINKS</h2>
+      <div class="links-grid">
+        <a class="link-card" href="https://open.spotify.com/artist/4YSmTSFitam5JCXpjdcjVB?si=3d2qYO6YTJa_OMGryRXkWQ" target="_blank">Spotify</a>
+        <a class="link-card" href="https://www.youtube.com/@wdonkisotprod" target="_blank">YouTube</a>
+        <a class="link-card" href="https://www.instagram.com/w.donkisot/" target="_blank">Instagram</a>
+        <a class="link-card" href="https://www.tiktok.com/@wdonkisot" target="_blank">TikTok</a>
+        <a class="link-card" href="https://soundcloud.com/wdonkisot-prod" target="_blank">SoundCloud</a>
+        <a class="link-card" href="https://audiomack.com/wdonkisotprod" target="_blank">Audiomack</a>
+        <a class="link-card" href="https://genius.com/wdonkisotprod" target="_blank">Genius</a>
+      </div>
+    </div>
+  </section>
 
-<div class="release card">
-<img src="mutsuz-son.jpg">
-Mutsuz Son
-<a href="https://youtu.be/2fWPXNPNpb8">Dinle</a>
-</div>
+  <!-- LATEST RELEASES -->
+  <section id="latest-releases">
+    <div class="container">
+      <h2 class="section-title">LATEST RELEASES</h2>
 
-<div class="release card">
-<img src="file_00000000e5d071f49d0eb86287c1224c.jpg">
-İçimdeki Ölü
-<a href="https://youtu.be/d75jhf2F3ko">Dinle</a>
-</div>
+      <div class="release-grid">
 
-<div class="release card">
-<img src="file_00000000b28471f4a6584c29979168c0.jpg">
-Hala Aynı Gölge
-<a href="https://youtu.be/FElSpvfbCRI">Dinle</a>
-</div>
+        <div class="release-card">
+          <img src="file_000000000a0472438f97384fc421d80b.jpg" alt="Mutsuz Son cover" />
+          <div class="release-info">
+            <h3>Mutsuz Son</h3>
+            <a href="https://youtu.be/2fWPXNPNpb8?si=nTgYWa4J_mneCxvN" target="_blank">Dinle</a>
+          </div>
+        </div>
 
-<div class="release card">
-<img src="file_000000006cb4720a835179c454ef6256.jpg">
-Yoksun İşte
-<a href="https://youtu.be/XFsK9wse1cs">Dinle</a>
-</div>
+        <div class="release-card">
+          <img src="file_000000003914720a8cabcc8c9f8df9b2.png" alt="İçimdeki Ölü cover" />
+          <div class="release-info">
+            <h3>İçimdeki Ölü</h3>
+            <a href="https://youtu.be/d75jhf2F3ko?si=vQ4tXQyWqhB-ijKq" target="_blank">Dinle</a>
+          </div>
+        </div>
 
-<div class="release card">
-<img src="file_00000000438871f49d929526b1e76de4.jpg">
-İçimde Ölürken
-<a href="https://youtu.be/KaP7S648cVE">Dinle</a>
-</div>
+        <div class="release-card">
+          <img src="file_0000000005cfc71f498719f6a61b0e384.jpg" alt="Hala Aynı Gölge cover" />
+          <div class="release-info">
+            <h3>Hala Aynı Gölge</h3>
+            <a href="https://youtu.be/FElSpvfbCRI?si=9jink9IsrWNXuSzg" target="_blank">Dinle</a>
+          </div>
+        </div>
 
-</div>
-</div>
+        <div class="release-card">
+          <img src="file_000000006cb4720a835179c454ef6256.jpg" alt="Yoksun İşte cover" />
+          <div class="release-info">
+            <h3>Yoksun İşte</h3>
+            <a href="https://youtu.be/XFsK9wse1cs?si=U6IYGHWjdaAQk8gz" target="_blank">Dinle</a>
+          </div>
+        </div>
 
-<div class="section">
-<h2 class="title">ABOUT</h2>
-<div class="text">
-wdonkisot prod., duygusal trap ve karanlık atmosferli Türkçe rap üretir. 
-AI destekli yaratıcı süreçlerle konsept, sound ve dijital kimlik oluşturur.
-</div>
-</div>
+        <div class="release-card">
+          <img src="file_00000000438871f49d929526b1e76de4.jpg" alt="İçimde Ölürken cover" />
+          <div class="release-info">
+            <h3>İçimde Ölürken</h3>
+            <a href="https://youtu.be/KaP7S648cVE?si=n5cfAM-goec7BQdu" target="_blank">Dinle</a>
+          </div>
+        </div>
 
-<div class="section">
-<h2 class="title">CONTACT</h2>
-<div class="text">
-wdonkisot@protonmail.com
-</div>
-</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MUSIC PLATFORMS -->
+  <section>
+    <div class="container">
+      <h2 class="section-title">MUSIC PLATFORMS</h2>
+      <div class="card text-block">
+        <p>
+          wdonkisot prod. releases music across multiple official platforms including Spotify, YouTube, SoundCloud, Audiomack and Genius.
+        </p>
+        <p>
+          Selected works include dark melodic trap, emotional Turkish rap and AI-assisted independent music projects.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ARTIST IDENTITY -->
+  <section>
+    <div class="container">
+      <h2 class="section-title">ARTIST IDENTITY</h2>
+      <div class="card text-block">
+        <p>
+          wdonkisot prod. is the artistic identity of İhsan Ömer Tekin, an independent producer, artist and songwriter.
+        </p>
+        <p>
+          The project creates melancholic Turkish rap, dark trap and concept-driven music, combining sound, visual storytelling and AI-assisted creative direction.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ARTIST STATEMENT -->
+  <section>
+    <div class="container">
+      <h2 class="section-title">ARTIST STATEMENT</h2>
+      <div class="card text-block">
+        <p>
+          wdonkisot prod. is an independent producer, artist and songwriter focused on emotional storytelling, dark atmospheres and modern trap sound design.
+        </p>
+        <p>
+          The project blends music, visuals and AI-assisted creative direction into a unified digital artist identity.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section>
+    <div class="container">
+      <h2 class="section-title">CONTACT / BOOKING</h2>
+      <div class="card">
+        <p style="margin-bottom: 18px; color: #d7dce4;">
+          Beat collaborations, creative partnerships, visual concepts and music-related inquiries:
+        </p>
+
+        <div class="contact-list">
+          <div class="contact-item">Email: wdonkisot@protonmail.com</div>
+          <div class="contact-item">Instagram DM: @w.donkisot</div>
+          <div class="contact-item">YouTube: @wdonkisotprod</div>
+          <div class="contact-item">TikTok: @wdonkisot</div>
+          <div class="contact-item">SoundCloud: soundcloud.com/wdonkisot-prod</div>
+          <div class="contact-item">Genius: genius.com/wdonkisotprod</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    © 2026 wdonkisot prod. — Official Artist Page
+  </footer>
 
 </body>
 </html>
