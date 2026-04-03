@@ -3,174 +3,294 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>wdonkisot prod.</title>
+  <title>wdonkisot prod. | Official Artist Page</title>
   <meta name="description" content="wdonkisot prod. | AI-Assisted Producer, Artist & Songwriter" />
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      scroll-behavior: smooth;
-    }
-
+    * { margin:0; padding:0; box-sizing:border-box; }
+    html { scroll-behavior:smooth; }
     body {
       font-family: Arial, sans-serif;
-      background: linear-gradient(180deg, #030712 0%, #04101f 100%);
-      color: white;
+      background: radial-gradient(circle at top left, #0a1020 0%, #05070d 42%, #03060c 100%);
+      color: #fff;
       line-height: 1.7;
+      overflow-x: hidden;
+    }
+    a { text-decoration:none; color:inherit; }
+    img { max-width:100%; display:block; }
+    .container { width: 92%; max-width: 1180px; margin: 0 auto; }
+
+    /* subtle particles */
+    .particles {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      overflow: hidden;
+      z-index: 0;
+    }
+    .particle {
+      position: absolute;
+      width: 3px;
+      height: 3px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.18);
+      animation: floatUp linear infinite;
+      filter: blur(0.3px);
+    }
+    @keyframes floatUp {
+      from { transform: translateY(40px); opacity: 0; }
+      15% { opacity: 1; }
+      to { transform: translateY(-120vh); opacity: 0; }
     }
 
-    a {
-      text-decoration: none;
-      color: inherit;
+    /* reveal on scroll */
+    .reveal {
+      opacity: 0;
+      transform: translateY(26px);
+      transition: opacity 700ms ease, transform 700ms ease;
     }
-
-    img {
-      max-width: 100%;
-      display: block;
-    }
-
-    .container {
-      width: 92%;
-      max-width: 1100px;
-      margin: auto;
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
     }
 
     /* HERO */
     .hero {
       position: relative;
+      z-index: 1;
+      padding: 70px 0 50px;
       min-height: 100vh;
       display: flex;
-      flex-direction: column;
-      justify-content: flex-start;
       align-items: center;
-      text-align: center;
-      padding-bottom: 60px;
-      overflow: hidden;
+    }
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.05fr 1fr;
+      gap: 34px;
+      align-items: center;
     }
 
-    .hero-banner {
-      width: 100%;
-      height: 300px;
-      background: url('banner.jpg') center center / cover no-repeat;
-      position: relative;
+    .hero-left {
+      background: rgba(9, 14, 24, 0.68);
+      border: 1px solid rgba(255,255,255,0.07);
+      border-radius: 28px;
+      padding: 34px 28px;
+      backdrop-filter: blur(12px);
+      box-shadow: 0 12px 40px rgba(0,0,0,0.26);
     }
 
-    .hero-banner::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(to bottom, rgba(0,0,0,0.2), rgba(3,7,18,0.95));
-    }
-
-    .profile-wrap {
-      margin-top: -70px;
-      position: relative;
-      z-index: 2;
-    }
-
-    .profile-pic {
-      width: 140px;
-      height: 140px;
-      border-radius: 50%;
-      object-fit: cover;
-      border: 4px solid rgba(255,255,255,0.15);
-      box-shadow: 0 0 35px rgba(0,0,0,0.45);
-      background: #111827;
-    }
-
-    .hero-card {
-      margin-top: 22px;
-      width: 92%;
-      max-width: 900px;
-      background: rgba(15, 23, 42, 0.78);
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 14px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.06);
       border: 1px solid rgba(255,255,255,0.08);
-      border-radius: 26px;
-      padding: 38px 24px;
-      backdrop-filter: blur(14px);
-      box-shadow: 0 10px 40px rgba(0,0,0,0.35);
-      z-index: 2;
+      color: #d7deea;
+      font-size: 0.92rem;
+      margin-bottom: 18px;
     }
 
     .hero h1 {
-      font-size: 2.7rem;
-      margin-bottom: 8px;
+      font-size: 3.15rem;
+      line-height: 1.04;
+      margin-bottom: 10px;
       font-weight: 800;
+      letter-spacing: -1px;
     }
-
     .hero h2 {
-      font-size: 1.2rem;
+      font-size: 1.18rem;
       font-weight: 500;
-      color: #cbd5e1;
-      margin-bottom: 22px;
+      color: #c7d2e2;
+      margin-bottom: 18px;
     }
-
     .hero p {
-      max-width: 780px;
-      margin: 0 auto 18px;
-      color: #dbe4f0;
-      font-size: 1rem;
+      color: #d9e1ee;
+      margin-bottom: 14px;
+      max-width: 760px;
     }
 
     .hero-buttons {
       display: flex;
       flex-wrap: wrap;
       gap: 14px;
-      justify-content: center;
-      margin-top: 28px;
+      margin-top: 22px;
+      margin-bottom: 24px;
     }
-
-    .hero-buttons a {
+    .btn {
+      display: inline-block;
+      padding: 14px 22px;
+      border-radius: 16px;
       background: rgba(255,255,255,0.06);
       border: 1px solid rgba(255,255,255,0.08);
-      padding: 14px 24px;
-      border-radius: 16px;
-      font-weight: bold;
-      min-width: 150px;
-      transition: 0.25s ease;
-    }
-
-    .hero-buttons a:hover {
-      transform: translateY(-3px);
-      background: rgba(255,255,255,0.12);
-    }
-
-    /* SECTION */
-    section {
-      padding: 70px 0;
-    }
-
-    .section-title {
+      font-weight: 700;
+      transition: transform .25s ease, background .25s ease;
+      min-width: 155px;
       text-align: center;
-      font-size: 2rem;
-      margin-bottom: 30px;
+    }
+    .btn:hover { transform: translateY(-3px); background: rgba(255,255,255,0.12); }
+    .btn.primary {
+      background: linear-gradient(135deg, rgba(95,114,255,0.28), rgba(168,85,247,0.22));
+      border-color: rgba(168,85,247,0.28);
+    }
+
+    .stream-box {
+      display: grid;
+      grid-template-columns: 1.25fr 0.85fr;
+      gap: 14px;
+      align-items: stretch;
+      margin-top: 6px;
+    }
+    .spotify-embed {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: 22px;
+      padding: 12px;
+      overflow: hidden;
+      min-height: 352px;
+    }
+    .spotify-embed iframe {
+      width: 100%;
+      min-height: 352px;
+      border: none;
+      border-radius: 16px;
+      display: block;
+    }
+    .stream-stats {
+      display: grid;
+      gap: 12px;
+    }
+    .stat-card {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: 22px;
+      padding: 18px;
+      box-shadow: 0 10px 26px rgba(0,0,0,0.16);
+    }
+    .stat-kicker {
+      color: #aab6c8;
+      font-size: 0.9rem;
+      margin-bottom: 10px;
+      letter-spacing: .3px;
+      text-transform: uppercase;
+    }
+    .stat-value {
+      font-size: 1.7rem;
+      font-weight: 800;
+      margin-bottom: 8px;
+    }
+    .stat-text {
+      color: #d4dceb;
+      font-size: 0.96rem;
+    }
+    .mini-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 10px;
+    }
+    .mini-badge {
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.08);
+      font-size: 0.9rem;
+      color: #dce4f1;
+    }
+
+    .hero-right {
+      position: relative;
+    }
+    .banner-card {
+      position: relative;
+      border-radius: 30px;
+      overflow: hidden;
+      border: 1px solid rgba(255,255,255,0.08);
+      box-shadow: 0 18px 50px rgba(0,0,0,0.32);
+      background: #0b1220;
+      min-height: 560px;
+    }
+    .banner-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      aspect-ratio: 16 / 10;
+      min-height: 560px;
+    }
+    .banner-glow {
+      position: absolute;
+      inset: auto 0 0 0;
+      height: 42%;
+      background: linear-gradient(to top, rgba(4,8,16,0.86), rgba(4,8,16,0));
+    }
+    .banner-caption {
+      position: absolute;
+      left: 24px;
+      bottom: 22px;
+      z-index: 2;
+    }
+    .banner-caption .small {
+      color: #b6c1d4;
+      font-size: .95rem;
+      margin-bottom: 6px;
+    }
+    .banner-caption .big {
+      font-size: 1.3rem;
       font-weight: 800;
     }
 
+    section {
+      position: relative;
+      z-index: 1;
+      padding: 78px 0;
+    }
+    .section-title {
+      text-align: center;
+      font-size: 2.15rem;
+      margin-bottom: 34px;
+      font-weight: 800;
+      letter-spacing: -.4px;
+    }
+
     .card, .text-block {
-      background: rgba(15, 23, 42, 0.72);
+      background: rgba(9, 14, 24, 0.68);
       border: 1px solid rgba(255,255,255,0.06);
       border-radius: 24px;
       padding: 28px;
       box-shadow: 0 10px 30px rgba(0,0,0,0.18);
+      backdrop-filter: blur(12px);
     }
-
     .text-block p {
-      margin-bottom: 18px;
+      margin-bottom: 16px;
       color: #dbe4f0;
     }
 
-    /* SPOTIFY */
-    .spotify-box {
-      max-width: 900px;
-      margin: auto;
+    /* NEWS */
+    .news-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 18px;
     }
-
-    .spotify-box iframe {
-      width: 100%;
-      border-radius: 18px;
-      border: none;
-      min-height: 352px;
+    .news-card {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: 22px;
+      padding: 22px;
+      transition: transform .25s ease, background .25s ease;
+    }
+    .news-card:hover { transform: translateY(-4px); background: rgba(255,255,255,0.08); }
+    .news-date {
+      font-size: .92rem;
+      color: #9fb0c8;
+      margin-bottom: 10px;
+    }
+    .news-card h3 {
+      font-size: 1.18rem;
+      margin-bottom: 10px;
+    }
+    .news-card p {
+      color: #d9e2ef;
+      font-size: .98rem;
     }
 
     /* LINKS */
@@ -179,7 +299,6 @@
       grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
       gap: 16px;
     }
-
     .link-btn {
       background: rgba(255,255,255,0.05);
       border: 1px solid rgba(255,255,255,0.08);
@@ -187,13 +306,9 @@
       padding: 18px 16px;
       text-align: center;
       font-weight: bold;
-      transition: 0.25s ease;
+      transition: transform .25s ease, background .25s ease;
     }
-
-    .link-btn:hover {
-      transform: translateY(-3px);
-      background: rgba(255,255,255,0.12);
-    }
+    .link-btn:hover { transform: translateY(-3px); background: rgba(255,255,255,0.12); }
 
     /* RELEASES */
     .release-grid {
@@ -201,40 +316,28 @@
       grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
       gap: 24px;
     }
-
     .release-card {
-      background: rgba(15, 23, 42, 0.75);
+      background: rgba(9, 14, 24, 0.72);
       border: 1px solid rgba(255,255,255,0.06);
-      border-radius: 22px;
+      border-radius: 24px;
       overflow: hidden;
-      transition: 0.25s ease;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.18);
+      transition: transform .25s ease, box-shadow .25s ease, background .25s ease;
+      box-shadow: 0 10px 28px rgba(0,0,0,0.18);
     }
-
     .release-card:hover {
-      transform: translateY(-4px);
+      transform: translateY(-5px);
+      background: rgba(255,255,255,0.08);
+      box-shadow: 0 18px 38px rgba(0,0,0,0.28);
     }
-
     .release-card img {
       width: 100%;
       aspect-ratio: 1 / 1;
       object-fit: cover;
       background: #0f172a;
     }
-
-    .release-info {
-      padding: 18px;
-    }
-
-    .release-info h3 {
-      font-size: 1.25rem;
-      margin-bottom: 8px;
-    }
-
-    .release-info a {
-      color: #93c5fd;
-      font-weight: bold;
-    }
+    .release-info { padding: 18px; }
+    .release-info h3 { font-size: 1.22rem; margin-bottom: 8px; }
+    .release-info a { color: #93c5fd; font-weight: bold; }
 
     /* CONTACT */
     .contact-list {
@@ -242,7 +345,6 @@
       gap: 14px;
       margin-top: 18px;
     }
-
     .contact-item {
       background: rgba(255,255,255,0.04);
       padding: 16px 18px;
@@ -254,80 +356,150 @@
 
     footer {
       text-align: center;
-      padding: 30px 16px 50px;
+      padding: 28px 16px 46px;
       color: #94a3b8;
       font-size: 0.95rem;
     }
 
+    @media (max-width: 1024px) {
+      .hero-grid {
+        grid-template-columns: 1fr;
+      }
+      .banner-card,
+      .banner-card img {
+        min-height: 420px;
+      }
+      .stream-box {
+        grid-template-columns: 1fr;
+      }
+    }
+
     @media (max-width: 768px) {
-      .hero-banner {
-        height: 240px;
+      .hero { padding-top: 38px; min-height: auto; }
+      .hero h1 { font-size: 2.35rem; }
+      .hero h2 { font-size: 1.05rem; }
+      .hero-left { padding: 28px 20px; }
+      .btn { width: 100%; }
+      .banner-card,
+      .banner-card img {
+        min-height: 300px;
+        aspect-ratio: 16 / 10;
       }
-
-      .profile-pic {
-        width: 120px;
-        height: 120px;
-      }
-
-      .hero h1 {
-        font-size: 2.2rem;
-      }
-
-      .hero h2 {
-        font-size: 1.05rem;
-      }
-
-      .hero-card {
-        padding: 30px 20px;
-      }
-
-      .section-title {
-        font-size: 1.75rem;
-      }
-
-      .spotify-box iframe {
-        min-height: 352px;
-      }
+      .section-title { font-size: 1.8rem; }
     }
   </style>
 </head>
 <body>
 
+  <div class="particles" aria-hidden="true"></div>
+
   <!-- HERO -->
   <header class="hero">
-    <div class="hero-banner"></div>
+    <div class="container">
+      <div class="hero-grid reveal">
 
-    <div class="profile-wrap">
-      <img src="profile.jpg" alt="wdonkisot prod. profile photo" class="profile-pic" />
-    </div>
+        <!-- LEFT -->
+        <div class="hero-left">
+          <div class="eyebrow">Official Artist Page</div>
 
-    <div class="hero-card">
-      <h1>wdonkisot prod.</h1>
-      <h2>AI-Assisted Producer, Artist & Songwriter</h2>
+          <h1>wdonkisot prod.</h1>
+          <h2>AI-Assisted Producer, Artist & Songwriter</h2>
 
-      <p>
-        wdonkisot prod. bağımsız bir AI-assisted producer, artist ve songwriter’dır.
-        Duygusal, karanlık ve atmosferik Türkçe rap / trap sound’u üretir.
-      </p>
+          <p>
+            wdonkisot prod. bağımsız bir AI-assisted producer, artist ve songwriter’dır.
+            Duygusal, karanlık ve atmosferik Türkçe rap / trap sound’u üretir.
+          </p>
 
-      <p>
-        Kendi projelerinde konsept, söz yazımı, duygu dünyası ve dijital kimliği kurarken;
-        yapay zekâyı yaratıcı sürecinin bir parçası olarak kullanır.
-      </p>
+          <p>
+            Kendi projelerinde konsept, söz yazımı, duygu dünyası ve dijital kimliği kurarken;
+            yapay zekâyı yaratıcı sürecinin bir parçası olarak kullanır.
+          </p>
 
-      <div class="hero-buttons">
-        <a href="https://open.spotify.com/artist/4YSmTSFitam5JCXpjdcjVB?si=3d2qYO6YTJa_OMGryRXkWQ" target="_blank">Spotify</a>
-        <a href="https://www.youtube.com/@wdonkisotprod" target="_blank">YouTube</a>
-        <a href="#releases">Latest Releases</a>
+          <div class="hero-buttons">
+            <a class="btn primary" href="https://open.spotify.com/artist/4YSmTSFitam5JCXpjdcjVB?si=3d2qYO6YTJa_OMGryRXkWQ" target="_blank">Spotify</a>
+            <a class="btn" href="https://www.youtube.com/@wdonkisotprod" target="_blank">YouTube</a>
+            <a class="btn" href="#releases">Latest Releases</a>
+          </div>
+
+          <div class="stream-box">
+            <div class="spotify-embed">
+              <iframe
+                src="https://open.spotify.com/embed/artist/4YSmTSFitam5JCXpjdcjVB?utm_source=generator&theme=0"
+                width="100%"
+                height="352"
+                allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                loading="lazy"></iframe>
+            </div>
+
+            <div class="stream-stats">
+              <div class="stat-card">
+                <div class="stat-kicker">Now Streaming</div>
+                <div class="stat-value">Featured on Spotify</div>
+                <div class="stat-text">
+                  Explore official releases, artist picks and latest drops directly from the official Spotify profile.
+                </div>
+              </div>
+
+              <div class="stat-card">
+                <div class="stat-kicker">Artist Snapshot</div>
+                <div class="stat-text">
+                  Emotional storytelling, dark atmospheres and AI-assisted creative direction.
+                </div>
+                <div class="mini-badges">
+                  <div class="mini-badge">Dark Trap</div>
+                  <div class="mini-badge">Turkish Rap</div>
+                  <div class="mini-badge">AI-Assisted</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- RIGHT -->
+        <div class="hero-right">
+          <div class="banner-card">
+            <img src="banner.jpg" alt="wdonkisot prod. banner" />
+            <div class="banner-glow"></div>
+            <div class="banner-caption">
+              <div class="small">Independent Artist / Producer</div>
+              <div class="big">Dark, emotional & atmospheric.</div>
+            </div>
+          </div>
+        </div>
+
       </div>
     </div>
   </header>
 
+  <!-- NEWS -->
+  <section>
+    <div class="container">
+      <h2 class="section-title reveal">NEWS / UPDATES</h2>
+      <div class="news-grid">
+        <div class="news-card reveal">
+          <div class="news-date">24 April 2026</div>
+          <h3>New Playlist Dropping Soon</h3>
+          <p>Yeni bir playlist yayına hazırlanıyor. Güncel duyurular ve resmi bağlantılar için bu sayfayı takip et.</p>
+        </div>
+        <div class="news-card reveal">
+          <div class="news-date">Latest Release</div>
+          <h3>Mutsuz Son</h3>
+          <p>Yeni yayınlar ve son çıkan işler için Latest Releases bölümüne göz at.</p>
+        </div>
+        <div class="news-card reveal">
+          <div class="news-date">Official Website</div>
+          <h3>Artist Page Live</h3>
+          <p>wdonkisot prod. için resmi sanatçı sayfası yayında. Tüm platformlar tek yerde toplandı.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- ABOUT -->
   <section>
     <div class="container">
-      <h2 class="section-title">ABOUT</h2>
-      <div class="text-block">
+      <h2 class="section-title reveal">ABOUT</h2>
+      <div class="text-block reveal">
         <p>
           wdonkisot prod., duygusal trap, melankolik Türkçe rap ve karanlık atmosferli prodüksiyonlar üreten bağımsız bir producer, artist ve songwriter’dır.
         </p>
@@ -344,37 +516,18 @@
     </div>
   </section>
 
-  <!-- SPOTIFY -->
-  <section>
-    <div class="container">
-      <h2 class="section-title">Listen on Spotify</h2>
-      <div class="spotify-box">
-        <iframe 
-          style="border-radius:12px" 
-          src="https://open.spotify.com/embed/artist/4YSmTSFitam5JCXpjdcjVB?utm_source=generator&theme=0" 
-          width="100%" 
-          height="352" 
-          frameBorder="0" 
-          allowfullscreen="" 
-          allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" 
-          loading="lazy">
-        </iframe>
-      </div>
-    </div>
-  </section>
-
   <!-- OFFICIAL LINKS -->
   <section>
     <div class="container">
-      <h2 class="section-title">OFFICIAL LINKS</h2>
+      <h2 class="section-title reveal">OFFICIAL LINKS</h2>
       <div class="links-grid">
-        <a class="link-btn" href="https://open.spotify.com/artist/4YSmTSFitam5JCXpjdcjVB?si=3d2qYO6YTJa_OMGryRXkWQ" target="_blank">Spotify</a>
-        <a class="link-btn" href="https://www.youtube.com/@wdonkisotprod" target="_blank">YouTube</a>
-        <a class="link-btn" href="https://www.instagram.com/w.donkisot/" target="_blank">Instagram</a>
-        <a class="link-btn" href="https://www.tiktok.com/@wdonkisot" target="_blank">TikTok</a>
-        <a class="link-btn" href="https://soundcloud.com/wdonkisot-prod" target="_blank">SoundCloud</a>
-        <a class="link-btn" href="https://audiomack.com/wdonkisotprod" target="_blank">Audiomack</a>
-        <a class="link-btn" href="https://genius.com/wdonkisotprod" target="_blank">Genius</a>
+        <a class="link-btn reveal" href="https://open.spotify.com/artist/4YSmTSFitam5JCXpjdcjVB?si=3d2qYO6YTJa_OMGryRXkWQ" target="_blank">Spotify</a>
+        <a class="link-btn reveal" href="https://www.youtube.com/@wdonkisotprod" target="_blank">YouTube</a>
+        <a class="link-btn reveal" href="https://www.instagram.com/w.donkisot/" target="_blank">Instagram</a>
+        <a class="link-btn reveal" href="https://www.tiktok.com/@wdonkisot" target="_blank">TikTok</a>
+        <a class="link-btn reveal" href="https://soundcloud.com/wdonkisot-prod" target="_blank">SoundCloud</a>
+        <a class="link-btn reveal" href="https://audiomack.com/wdonkisotprod" target="_blank">Audiomack</a>
+        <a class="link-btn reveal" href="https://genius.com/wdonkisotprod" target="_blank">Genius</a>
       </div>
     </div>
   </section>
@@ -382,10 +535,10 @@
   <!-- LATEST RELEASES -->
   <section id="releases">
     <div class="container">
-      <h2 class="section-title">LATEST RELEASES</h2>
+      <h2 class="section-title reveal">LATEST RELEASES</h2>
       <div class="release-grid">
 
-        <div class="release-card">
+        <div class="release-card reveal">
           <img src="mutsuzson.jpg" alt="Mutsuz Son cover" />
           <div class="release-info">
             <h3>Mutsuz Son</h3>
@@ -393,7 +546,7 @@
           </div>
         </div>
 
-        <div class="release-card">
+        <div class="release-card reveal">
           <img src="içimdekiölü.jpg" alt="İçimdeki Ölü cover" />
           <div class="release-info">
             <h3>İçimdeki Ölü</h3>
@@ -401,7 +554,7 @@
           </div>
         </div>
 
-        <div class="release-card">
+        <div class="release-card reveal">
           <img src="halaaynıgölge.jpg" alt="Hala Aynı Gölge cover" />
           <div class="release-info">
             <h3>Hala Aynı Gölge</h3>
@@ -409,7 +562,7 @@
           </div>
         </div>
 
-        <div class="release-card">
+        <div class="release-card reveal">
           <img src="yoksunişte.jpg" alt="Yoksun İşte cover" />
           <div class="release-info">
             <h3>Yoksun İşte</h3>
@@ -417,7 +570,7 @@
           </div>
         </div>
 
-        <div class="release-card">
+        <div class="release-card reveal">
           <img src="içimdeölürken.jpg" alt="İçimde Ölürken cover" />
           <div class="release-info">
             <h3>İçimde Ölürken</h3>
@@ -432,8 +585,8 @@
   <!-- MUSIC PLATFORMS -->
   <section>
     <div class="container">
-      <h2 class="section-title">MUSIC PLATFORMS</h2>
-      <div class="text-block">
+      <h2 class="section-title reveal">MUSIC PLATFORMS</h2>
+      <div class="text-block reveal">
         <p>
           wdonkisot prod. releases music across multiple official platforms including Spotify, YouTube, SoundCloud, Audiomack and Genius.
         </p>
@@ -447,8 +600,8 @@
   <!-- ARTIST IDENTITY -->
   <section>
     <div class="container">
-      <h2 class="section-title">ARTIST IDENTITY</h2>
-      <div class="text-block">
+      <h2 class="section-title reveal">ARTIST IDENTITY</h2>
+      <div class="text-block reveal">
         <p>
           wdonkisot prod. is the artistic identity of İhsan Ömer Tekin, an independent producer, artist and songwriter.
         </p>
@@ -462,8 +615,8 @@
   <!-- ARTIST STATEMENT -->
   <section>
     <div class="container">
-      <h2 class="section-title">ARTIST STATEMENT</h2>
-      <div class="text-block">
+      <h2 class="section-title reveal">ARTIST STATEMENT</h2>
+      <div class="text-block reveal">
         <p>
           wdonkisot prod. is an independent producer, artist and songwriter focused on emotional storytelling, dark atmospheres and modern trap sound design.
         </p>
@@ -477,8 +630,8 @@
   <!-- CONTACT -->
   <section>
     <div class="container">
-      <h2 class="section-title">CONTACT / BOOKING</h2>
-      <div class="card">
+      <h2 class="section-title reveal">CONTACT / BOOKING</h2>
+      <div class="card reveal">
         <p style="margin-bottom: 18px; color: #d7dce4;">
           Beat collaborations, creative partnerships, visual concepts and music-related inquiries:
         </p>
@@ -498,6 +651,34 @@
   <footer>
     © 2026 wdonkisot prod. — Official Artist Page
   </footer>
+
+  <script>
+    // particles
+    const particlesContainer = document.querySelector('.particles');
+    const particleCount = 24;
+    for (let i = 0; i < particleCount; i++) {
+      const p = document.createElement('span');
+      p.className = 'particle';
+      p.style.left = Math.random() * 100 + 'vw';
+      p.style.bottom = (-20 - Math.random() * 120) + 'px';
+      p.style.animationDuration = (12 + Math.random() * 18) + 's';
+      p.style.animationDelay = (-Math.random() * 20) + 's';
+      p.style.opacity = (0.12 + Math.random() * 0.22).toFixed(2);
+      p.style.transform = `scale(${0.7 + Math.random() * 1.8})`;
+      particlesContainer.appendChild(p);
+    }
+
+    // reveal on scroll
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.12 });
+
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+  </script>
 
 </body>
 </html>
