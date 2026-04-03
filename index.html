@@ -19,6 +19,7 @@
     img { max-width:100%; display:block; }
     .container { width: 92%; max-width: 1180px; margin: 0 auto; }
 
+    /* subtle particles */
     .particles {
       position: fixed;
       inset: 0;
@@ -41,6 +42,7 @@
       to { transform: translateY(-120vh); opacity: 0; }
     }
 
+    /* reveal on scroll */
     .reveal {
       opacity: 0;
       transform: translateY(26px);
@@ -51,6 +53,7 @@
       transform: translateY(0);
     }
 
+    /* HERO */
     .hero {
       position: relative;
       z-index: 1;
@@ -262,6 +265,7 @@
       color: #dbe4f0;
     }
 
+    /* NEWS */
     .news-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
@@ -289,6 +293,7 @@
       font-size: .98rem;
     }
 
+    /* LINKS */
     .links-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
@@ -305,6 +310,7 @@
     }
     .link-btn:hover { transform: translateY(-3px); background: rgba(255,255,255,0.12); }
 
+    /* RELEASES */
     .release-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -333,6 +339,7 @@
     .release-info h3 { font-size: 1.22rem; margin-bottom: 8px; }
     .release-info a { color: #93c5fd; font-weight: bold; }
 
+    /* CONTACT */
     .contact-list {
       display: grid;
       gap: 14px;
@@ -355,9 +362,16 @@
     }
 
     @media (max-width: 1024px) {
-      .hero-grid { grid-template-columns: 1fr; }
-      .banner-card, .banner-card img { min-height: 420px; }
-      .stream-box { grid-template-columns: 1fr; }
+      .hero-grid {
+        grid-template-columns: 1fr;
+      }
+      .banner-card,
+      .banner-card img {
+        min-height: 420px;
+      }
+      .stream-box {
+        grid-template-columns: 1fr;
+      }
     }
 
     @media (max-width: 768px) {
@@ -366,7 +380,8 @@
       .hero h2 { font-size: 1.05rem; }
       .hero-left { padding: 28px 20px; }
       .btn { width: 100%; }
-      .banner-card, .banner-card img {
+      .banner-card,
+      .banner-card img {
         min-height: 300px;
         aspect-ratio: 16 / 10;
       }
@@ -378,10 +393,12 @@
 
   <div class="particles" aria-hidden="true"></div>
 
+  <!-- HERO -->
   <header class="hero">
     <div class="container">
       <div class="hero-grid reveal">
 
+        <!-- LEFT -->
         <div class="hero-left">
           <div class="eyebrow">Official Artist Page</div>
 
@@ -438,6 +455,7 @@
           </div>
         </div>
 
+        <!-- RIGHT -->
         <div class="hero-right">
           <div class="banner-card">
             <img src="banner.jpg" alt="wdonkisot prod. banner" />
@@ -453,13 +471,31 @@
     </div>
   </header>
 
+  <!-- NEWS -->
   <section>
     <div class="container">
       <h2 class="section-title reveal">NEWS / UPDATES</h2>
-      <div class="news-grid" id="news-container"></div>
+      <div class="news-grid">
+        <div class="news-card reveal">
+          <div class="news-date">24 April 2026</div>
+          <h3>New Playlist Dropping Soon</h3>
+          <p>Yeni bir playlist yayına hazırlanıyor. Güncel duyurular ve resmi bağlantılar için bu sayfayı takip et.</p>
+        </div>
+        <div class="news-card reveal">
+          <div class="news-date">Latest Release</div>
+          <h3>Mutsuz Son</h3>
+          <p>Yeni yayınlar ve son çıkan işler için Latest Releases bölümüne göz at.</p>
+        </div>
+        <div class="news-card reveal">
+          <div class="news-date">Official Website</div>
+          <h3>Artist Page Live</h3>
+          <p>wdonkisot prod. için resmi sanatçı sayfası yayında. Tüm platformlar tek yerde toplandı.</p>
+        </div>
+      </div>
     </div>
   </section>
 
+  <!-- ABOUT -->
   <section>
     <div class="container">
       <h2 class="section-title reveal">ABOUT</h2>
@@ -480,6 +516,7 @@
     </div>
   </section>
 
+  <!-- OFFICIAL LINKS -->
   <section>
     <div class="container">
       <h2 class="section-title reveal">OFFICIAL LINKS</h2>
@@ -495,13 +532,57 @@
     </div>
   </section>
 
+  <!-- LATEST RELEASES -->
   <section id="releases">
     <div class="container">
       <h2 class="section-title reveal">LATEST RELEASES</h2>
-      <div class="release-grid" id="releases-container"></div>
+      <div class="release-grid">
+
+        <div class="release-card reveal">
+          <img src="mutsuzson.jpg" alt="Mutsuz Son cover" />
+          <div class="release-info">
+            <h3>Mutsuz Son</h3>
+            <a href="https://youtu.be/2fWPXNPNpb8?si=nTgYWa4J_mneCxvN" target="_blank">Dinle</a>
+          </div>
+        </div>
+
+        <div class="release-card reveal">
+          <img src="içimdekiölü.jpg" alt="İçimdeki Ölü cover" />
+          <div class="release-info">
+            <h3>İçimdeki Ölü</h3>
+            <a href="https://youtu.be/d75jhf2F3ko?si=vQ4tXQyWqhB-ijKq" target="_blank">Dinle</a>
+          </div>
+        </div>
+
+        <div class="release-card reveal">
+          <img src="halaaynıgölge.jpg" alt="Hala Aynı Gölge cover" />
+          <div class="release-info">
+            <h3>Hala Aynı Gölge</h3>
+            <a href="https://youtu.be/FElSpvfbCRI?si=9jink9IsrWNXuSzg" target="_blank">Dinle</a>
+          </div>
+        </div>
+
+        <div class="release-card reveal">
+          <img src="yoksunişte.jpg" alt="Yoksun İşte cover" />
+          <div class="release-info">
+            <h3>Yoksun İşte</h3>
+            <a href="https://youtu.be/XFsK9wse1cs?si=U6IYGHWjdaAQk8gz" target="_blank">Dinle</a>
+          </div>
+        </div>
+
+        <div class="release-card reveal">
+          <img src="içimdeölürken.jpg" alt="İçimde Ölürken cover" />
+          <div class="release-info">
+            <h3>İçimde Ölürken</h3>
+            <a href="https://youtu.be/KaP7S648cVE?si=n5cfAM-goec7BQdu" target="_blank">Dinle</a>
+          </div>
+        </div>
+
+      </div>
     </div>
   </section>
 
+  <!-- MUSIC PLATFORMS -->
   <section>
     <div class="container">
       <h2 class="section-title reveal">MUSIC PLATFORMS</h2>
@@ -516,6 +597,7 @@
     </div>
   </section>
 
+  <!-- ARTIST IDENTITY -->
   <section>
     <div class="container">
       <h2 class="section-title reveal">ARTIST IDENTITY</h2>
@@ -530,6 +612,7 @@
     </div>
   </section>
 
+  <!-- ARTIST STATEMENT -->
   <section>
     <div class="container">
       <h2 class="section-title reveal">ARTIST STATEMENT</h2>
@@ -544,6 +627,7 @@
     </div>
   </section>
 
+  <!-- CONTACT -->
   <section>
     <div class="container">
       <h2 class="section-title reveal">CONTACT / BOOKING</h2>
@@ -568,6 +652,33 @@
     © 2026 wdonkisot prod. — Official Artist Page
   </footer>
 
-  <script src="script.js"></script>
+  <script>
+    // particles
+    const particlesContainer = document.querySelector('.particles');
+    const particleCount = 24;
+    for (let i = 0; i < particleCount; i++) {
+      const p = document.createElement('span');
+      p.className = 'particle';
+      p.style.left = Math.random() * 100 + 'vw';
+      p.style.bottom = (-20 - Math.random() * 120) + 'px';
+      p.style.animationDuration = (12 + Math.random() * 18) + 's';
+      p.style.animationDelay = (-Math.random() * 20) + 's';
+      p.style.opacity = (0.12 + Math.random() * 0.22).toFixed(2);
+      p.style.transform = `scale(${0.7 + Math.random() * 1.8})`;
+      particlesContainer.appendChild(p);
+    }
+
+    // reveal on scroll
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.12 });
+
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+  </script>
+
 </body>
 </html>
