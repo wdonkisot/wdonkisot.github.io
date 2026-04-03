@@ -701,6 +701,48 @@
     }, { threshold: 0.12 });
 
     document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+    // NEWS JSON çek
+fetch('news.json?v=' + Date.now())
+  .then(res => res.json())
+  .then(news => {
+    const newsContainer = document.getElementById('news-container');
+
+    news.forEach(item => {
+      const card = document.createElement('div');
+      card.className = 'news-card reveal';
+      card.innerHTML = `
+        <div class="news-date">${item.date}</div>
+        <h3>${item.title}</h3>
+        <p>${item.text}</p>
+      `;
+      newsContainer.appendChild(card);
+      observer.observe(card);
+    });
+  })
+  .catch(err => console.error('News yüklenemedi:', err));
+
+// RELEASES JSON çek
+fetch('releases.json?v=' + Date.now())
+  .then(res => res.json())
+  .then(releases => {
+    const releasesContainer = document.getElementById('releases-container');
+
+    releases.forEach(item => {
+      const card = document.createElement('div');
+      card.className = 'release-card reveal';
+      card.innerHTML = `
+        <img src="${item.image}" alt="${item.title} cover" />
+        <div class="release-info">
+          <h3>${item.title}</h3>
+          <a href="${item.link}" target="_blank">Dinle</a>
+        </div>
+      `;
+      releasesContainer.appendChild(card);
+      observer.observe(card);
+    });
+  })
+  .catch(err => console.error('Releases yüklenemedi:', err));
     
 // ADMIN PANEL
 let tapCount = 0;
