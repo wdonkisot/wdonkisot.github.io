@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://wdonkisot.github.io/sitemap.xml
