@@ -1,27 +1,42 @@
 [
   {
+    "title": "M I - Papatya",
+    "image": "https://resimlink.com/hEdFr",
+    "link": "https://youtu.be/GLAVNJeOQ9s"
+  },
+  {
+    "title": "M II - İhanet",
+    "image": "https://resimlink.com/Yon_ZVdf5",
+    "link": "https://youtu.be/whU4uwfIpiY"
+  },
+  {
+    "title": "M III - Yine Sen",
+    "image": "https://resimlink.com/ix2yNBPzTlwm",
+    "link": "https://youtu.be/Q5IMq7Jx7z4"
+  },
+  {
     "title": "Mutsuz Son",
     "image": "mutsuzson.jpg",
-    "link": "https://youtu.be/2fWpxNPNpb8?si=nTgYWa4J_mneCxvN"
+    "link": "https://youtu.be/2fWpxNPNpb8"
   },
   {
     "title": "İçimde Ölürken",
-    "image": "içimdeölürken.jpg",
-    "link": "https://youtu.be/"
+    "image": "icimdeölürken.jpg",
+    "link": "https://youtu.be/2fWPXNPNpb8?si=3zMOhoWmdYDLcPc-"
   },
   {
     "title": "İçimdeki Ölü",
-    "image": "içimdekiölü.jpg",
-    "link": "https://youtu.be/"
+    "image": "icimdekiölü.jpg",
+    "link": "https://youtu.be/d75jhf2F3ko?si=Qf4iSmNbD2yV5NLu"
   },
   {
     "title": "Yoksun İşte",
-    "image": "yoksunişte.jpg",
-    "link": "https://youtu.be/"
+    "image": "yoksuniste.jpg",
+    "link": "https://youtu.be/XFsK9wse1cs?si=QvdK6D1OhU4NyD0U"
   },
   {
     "title": "Hala Aynı Gölge",
-    "image": "halaaynıgölge.jpg",
-    "link": "https://youtu.be/"
+    "image": "halaaynigolge.jpg",
+    "link": "https://youtu.be/FElSpvfbCRI?si=coTOEEN5OXisdG9W"
   }
 ]
